@@ -154,6 +154,7 @@ def load_batch_encodings(files, sample_length=125):
   # Load the data
   for f in files:
     data = np.load(f)
+    data = np.squeeze(data, axis=0) # Squeeze the extra dimension (1, m, n) -> (m, n)
     if data.ndim != 2:
       raise ValueError("Encoding file should have 2 dims "
                        "[time, channels], not {}".format(data.ndim))
