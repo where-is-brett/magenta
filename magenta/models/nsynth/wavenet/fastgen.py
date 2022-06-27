@@ -220,7 +220,9 @@ def synthesize(encodings,
     batch_size, encoding_length, _ = encodings.shape
     hop_length = Config().ae_hop_length
     total_length = encoding_length * hop_length
-
+    tf.logging.info("Total Samples: %d" % total_length)#print total number of samples
+    tf.logging.info("Estimated time: %d" % total_length/360000)#
+    
     # initialize queues w/ 0s
     sess.run(net["init_ops"])
 
