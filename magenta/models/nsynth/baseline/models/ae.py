@@ -35,7 +35,7 @@ def get_hparams(config_name):
       learning_rate=1e-4,
       adam_beta=0.5,
       max_steps=6000 * 50000,
-      samples_per_second=16000,
+      samples_per_second=64000,
       num_samples=64000,
       # Preprocessing
       n_fft=1024,

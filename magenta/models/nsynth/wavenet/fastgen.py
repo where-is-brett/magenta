@@ -123,7 +123,7 @@ def load_batch_audio(files, sample_length=64000):
   batch = []
   # Load the data
   for f in files:
-    data = utils.load_audio(f, sample_length, sr=16000)
+    data = utils.load_audio(f, sample_length, sr=64000)
     length = data.shape[0]
     # Add padding if less than sample length
     if length < sample_length:
@@ -174,7 +174,7 @@ def load_batch_encodings(files, sample_length=125):
 def save_batch(batch_audio, batch_save_paths):
   for audio, name in zip(batch_audio, batch_save_paths):
     tf.logging.info("Saving: %s" % name)
-    wavfile.write(name, 16000, audio)
+    wavfile.write(name, 64000, audio)
 
 
 def generate_audio_sample(sess, net, audio, encoding):
@@ -200,7 +200,7 @@ def generate_audio_sample(sess, net, audio, encoding):
 def synthesize(encodings,
                save_paths,
                checkpoint_path="model.ckpt-200000",
-               samples_per_save=300000):
+               samples_per_save=100000):
   """Synthesize audio from an array of encodings.
 
   Args:
