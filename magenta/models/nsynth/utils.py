@@ -44,7 +44,7 @@ def get_module(module_path):
   return module
 
 
-def load_audio(path, sample_length=64000, sr=64000):
+def load_audio(path, sample_length=64000, sr=44100):
   """Loading of a wave file.
 
   Args:
@@ -617,7 +617,7 @@ def calculate_l2_and_summaries(predicted_vectors, true_vectors, name):
   return loss
 
 
-def frequency_weighted_cost_mask(peak=10.0, hz_flat=1000, sr=64000, n_fft=512):
+def frequency_weighted_cost_mask(peak=10.0, hz_flat=1000, sr=44100, n_fft=512):
   """Calculates a mask to weight lower frequencies higher.
 
   Piecewise linear approximation. Assumes magnitude is in log scale.

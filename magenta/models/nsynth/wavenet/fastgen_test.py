@@ -68,7 +68,7 @@ class FastegenTest(parameterized.TestCase, tf.test.TestCase):
     for i in range(n_files):
       fname = os.path.join(test_dir, 'test_audio_{}.wav'.format(i))
       files.append(fname)
-      librosa.output.write_wav(fname, test_audio, sr=16000, norm=True)
+      librosa.output.write_wav(fname, test_audio, sr=44100, norm=True)
     # Load the files
     batch_data = fastgen.load_batch_audio(files, sample_length=end_length)
     self.assertEqual(batch_data.shape, (n_files, end_length))
